@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>  
+<!DOCTYPE hibernate-mapping PUBLIC  
+     "-//Hibernate/Hibernate Mapping DTD 5.3//EN"  
+     "http://hibernate.sourceforge.net/hibernate-mapping-5.3.dtd">  
+      
+<hibernate-mapping>  
+      <class name="com.ideas2it.dvdstore.model.Category" table="CATEGORY">  
+        <id name="id" column="ID" type="integer">  
+         <generator class="increment"></generator>  
+        </id>  
+                
+        <property name="name" column="CATEGORY_NAME" type="string" />
+        <property name="isAvailable" column="ISAVAILABLE" type="yes_no" />
+
+        <bag name="dvds" table="DVD_CATEGORY" > 
+         <key column="CATEGORY_ID" />
+         <many-to-many column="DVD_ID" class="com.ideas2it.dvdstore.model.Dvd"  where="isAvailable='Y'"/>
+        </bag>
+       
+      </class>  
+                
+ </hibernate-mapping>  

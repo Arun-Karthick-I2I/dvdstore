@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8'?>  
+<!DOCTYPE hibernate-mapping PUBLIC  
+     "-//Hibernate/Hibernate Mapping DTD 5.3//EN"  
+     "http://hibernate.sourceforge.net/hibernate-mapping-5.3.dtd">  
+      
+<hibernate-mapping>  
+      <class name="com.ideas2it.dvdstore.model.Customer" table="CUSTOMER">  
+        <id name="id" column="ID" type="integer">  
+         <generator class="increment"></generator>  
+        </id>  
+                
+        <property name="name" column="NAME" type="string" />
+        <property name="mobileNumber" column="MOBILE_NO" type="string" />
+        <property name="emailId" column="EMAIL_ID" type="string" />
+
+        <bag name="addresses" cascade="save-update" table="ADDRESS" lazy="false"> 
+         <key column="CUSTOMER_ID" />
+         <one-to-many class="com.ideas2it.dvdstore.model.Address" />
+        </bag>
+
+        <bag name="orders" table="ORDERS" lazy="false"> 
+         <key column="CUSTOMER_ID" />
+         <one-to-many class="com.ideas2it.dvdstore.model.Order" />
+        </bag>
+
+        <many-to-one name="user" column="USER_ID" unique="true" class="com.ideas2it.dvdstore.model.User" />
+       
+      </class>  
+                
+ </hibernate-mapping>  

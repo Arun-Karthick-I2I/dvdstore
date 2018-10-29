@@ -1,0 +1,3 @@
+*.class
+*.jar
+src/com/ideas2it/dvdstore/xml/*

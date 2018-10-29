@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>  
+<!DOCTYPE hibernate-mapping PUBLIC  
+     "-//Hibernate/Hibernate Mapping DTD 5.3//EN"  
+     "http://hibernate.sourceforge.net/hibernate-mapping-5.3.dtd">  
+      
+<hibernate-mapping>  
+      <class name="com.ideas2it.dvdstore.model.Order" table="ORDERS">  
+        <id name="id" column="ID" type="integer">  
+         <generator class="increment"></generator>  
+        </id>  
+                
+        <property name="orderDate" column="ORDER_DATE" type="date" />
+        <property name="customerId" column="CUSTOMER_ID" type="integer" />
+        <many-to-one name="dvd" column="DVD_ID" class="com.ideas2it.dvdstore.model.Dvd" lazy="false"/>
+        <many-to-one name="address" column="ADDRESS_ID" class="com.ideas2it.dvdstore.model.Address" lazy="false"/>
+
+      </class>  
+                
+ </hibernate-mapping>  

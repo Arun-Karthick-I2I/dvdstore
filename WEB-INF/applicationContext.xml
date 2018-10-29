@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean id="dvdController" class="com.ideas2it.dvdstore.controller.DvdController">
+        <property name="dvdService" ref="dvdService" />
+    </bean>    
+    <bean id="dvdService" class="com.ideas2it.dvdstore.service.impl.DvdServiceImpl">
+        <property name="dvdDao" ref="dvdDao" />
+        <property name="categoryService" ref="categoryService" />
+    </bean>
+    <bean id="dvdDao" class="com.ideas2it.dvdstore.dao.impl.DvdDaoImpl"></bean>
+
+    <bean id="categoryController" class="com.ideas2it.dvdstore.controller.CategoryController">
+        <property name="categoryService" ref="categoryService" />
+    </bean>
+    <bean id="categoryService" class="com.ideas2it.dvdstore.service.impl.CategoryServiceImpl">
+        <property name="categoryDao" ref="categoryDao" />
+    </bean>
+    <bean id="categoryDao" class="com.ideas2it.dvdstore.dao.impl.CategoryDaoImpl"></bean>
+
+    <bean id="customerController" class="com.ideas2it.dvdstore.controller.CustomerController">
+        <property name="customerService" ref="customerService" />
+    </bean> 
+    <bean id="customerService" class="com.ideas2it.dvdstore.service.impl.CustomerServiceImpl">
+        <property name="customerDao" ref="customerDao" />
+        <property name="dvdService" ref="dvdService" />
+        <property name="categoryService" ref="categoryService" />
+        <property name="orderService" ref="orderService" />
+    </bean>
+    <bean id="customerDao" class="com.ideas2it.dvdstore.dao.impl.CustomerDaoImpl"></bean>
+
+    <bean id="orderController" class="com.ideas2it.dvdstore.controller.OrderController">
+        <property name="orderService" ref="orderService" />
+    </bean>
+    <bean id="orderService" class="com.ideas2it.dvdstore.service.impl.OrderServiceImpl">
+        <property name="orderDao" ref="orderDao" />
+        </bean>
+    <bean id="orderDao" class="com.ideas2it.dvdstore.dao.impl.OrderDaoImpl"></bean>
+
+    <bean id="userController" class="com.ideas2it.dvdstore.controller.UserController">
+        <property name="userService" ref="userService" />
+    </bean>
+    <bean id="userService" class="com.ideas2it.dvdstore.service.impl.UserServiceImpl">
+        <property name="userDao" ref="userDao" />
+        <property name="customerService" ref="customerService" />
+    </bean> 
+    <bean id="userDao" class="com.ideas2it.dvdstore.dao.impl.UserDaoImpl"></bean>
+
+</beans>
+

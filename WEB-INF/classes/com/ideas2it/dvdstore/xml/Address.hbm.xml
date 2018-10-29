@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>  
+<!DOCTYPE hibernate-mapping PUBLIC  
+     "-//Hibernate/Hibernate Mapping DTD 5.3//EN"  
+     "http://hibernate.sourceforge.net/hibernate-mapping-5.3.dtd">  
+      
+<hibernate-mapping>  
+      <class name="com.ideas2it.dvdstore.model.Address" table="ADDRESS">  
+        <id name="id" column="ID" type="integer">  
+         <generator class="increment"></generator>  
+        </id>  
+                
+        <property name="addressLine" column="ADDRESS_LINE" type="string" />
+        <property name="city" column="CITY" type="string" />
+        <property name="state" column="STATE" type="string" />
+        <property name="country" column="COUNTRY" type="string" />
+        <property name="pinCode" column="PINCODE" type="string" />       
+              
+      </class>  
+                
+ </hibernate-mapping>  
