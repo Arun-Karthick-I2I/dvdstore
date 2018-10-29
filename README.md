@@ -1,2 +1,2 @@
 # Dvdstore
-DvdStore Project
+DvdStore Project to simulate an online Dvd Store.
