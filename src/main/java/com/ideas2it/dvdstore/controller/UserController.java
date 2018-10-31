@@ -52,6 +52,23 @@ public class UserController {
 
     /**
      * <p>
+     * Requests the view handler to show the registration form page.
+     * </p>
+     * 
+     * @param model  A ModelMap object that adds attribute to the Http Request
+     *               Object with the help of JSON.
+     *
+     * @return viewName  Name of the view which has to be displayed
+     *
+     */
+    @GetMapping(value = "user/registrationForm")
+    public String registrationForm(ModelMap model) {
+        model.addAttribute(Constants.LABEL_REGISTER, Boolean.TRUE);
+        return Constants.INDEX_PAGE;
+    }
+
+    /**
+     * <p>
      * Creates an entry for the user if no such user exists else returns a 
      * message accordingly.
      * </p>
